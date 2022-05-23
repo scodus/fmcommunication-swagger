@@ -7,9 +7,3 @@
 2. Copy json content from postman export to `postman.json` file. \*\*\*NOTE: `Currently supports only single folder structure`
 
 3. Run `make doc` in terminal to generate openApi.
-
-# 4. View Api in : https://niraulabijay.github.io/phase_one_swagger/
-
-#### Reference `https://joolfe.github.io/postman-to-openapi/`
-# phase_one_swagger
-# fmbudget-swagger
