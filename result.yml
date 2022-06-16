@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  title: Fm-Communication-Api
+  title: Simple API
   version: '1.0'
 basePath: /backend/web/
 consumes:
