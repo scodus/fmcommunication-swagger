@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Simple API",
+    "title": "Feedback-communication YBC",
     "version": "1.0"
   },
   "basePath": "/backend/web/",
@@ -1433,7 +1433,7 @@
             "description": "feedback data in json",
             "required": false,
             "schema": {
-              "$ref": "#/definitions/Createarea"
+              "$ref": "#/definitions/Createservicetemplate"
             }
           }
         ],
@@ -1441,7 +1441,7 @@
           "201": {
             "description": "Data Feedback",
             "schema": {
-              "$ref": "#/definitions/Createarea"
+              "$ref": "#/definitions/Createservicetemplate"
             }
           }
         },
@@ -1635,6 +1635,133 @@
         "responses": {
           "200": {
             "description": "View Successful"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/feedback/specs-template/list-template": {
+      "get": {
+        "tags": [
+          "SpecsTemplate"
+        ],
+        "summary": "Get list of  template name and its services",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page"
+          },
+          {
+            "name": "sortno",
+            "in": "query",
+            "description": "sortno"
+          },
+          {
+            "name": "sortname",
+            "in": "query",
+            "description": "sortname"
+          },
+          {
+            "name": "organization_id",
+            "in": "query",
+            "description": "organization_id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "View Successful"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/feedback/specs-template/list-template-name-service": {
+      "get": {
+        "tags": [
+          "SpecsTemplate"
+        ],
+        "summary": "Get list of services a.c to template name",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "page"
+          },
+          {
+            "name": "sortno",
+            "in": "query",
+            "description": "sortno"
+          },
+          {
+            "name": "sortname",
+            "in": "query",
+            "description": "sortname"
+          },
+          {
+            "name": "organization_id",
+            "in": "query",
+            "description": "organization_id"
+          },
+          {
+            "name": "template_id",
+            "in": "query",
+            "description": "organization_id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "View Successful"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/feedback/specs-template/create-template": {
+      "post": {
+        "tags": [
+          "SpecsTemplate"
+        ],
+        "summary": "Create template name and its service",
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "description": "feedback data in json",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Createtemplate"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Data Feedback",
+            "schema": {
+              "$ref": "#/definitions/Createtemplate"
+            }
           }
         },
         "security": [
@@ -2315,6 +2442,50 @@
         "status": {
           "type": "string",
           "example": "Active"
+        }
+      }
+    },
+    "Createservicetemplate": {
+      "required": [
+        "title",
+        "status"
+      ],
+      "properties": {
+        "service": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "example": "Active"
+              }
+            },
+            "type": "object"
+          }
+        }
+      }
+    },
+    "Createtemplate": {
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "service": {
+          "type": "array",
+          "items": {
+            "properties": {
+              "service": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          }
         }
       }
     },
