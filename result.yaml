@@ -1,2801 +1,2128 @@
-{
-  "swagger": "2.0",
-  "info": {
-    "title": "Feedback and COmmunication YBC",
-    "version": "1.0"
-  },
-  "basePath": "/backend/web/",
-  "consumes": [
-    "application/x-www-form-urlencoded"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "paths": {
-    "/communication/communications/create-contact": {
-      "post": {
-        "tags": [
-          "Communication"
-        ],
-        "summary": "Create contact",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "Json data",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/CreateAccessMessage"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Execution Successful",
-            "schema": {
-              "$ref": "#/definitions/CreateSuccessResponse"
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "$ref": "#/definitions/BadRequestResponse"
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedUserResponse"
-            }
-          },
-          "503": {
-            "description": "Token Expired",
-            "schema": {
-              "$ref": "#/definitions/TokenExpiredResponse"
-            }
-          },
-          "504": {
-            "description": "Logged Out",
-            "schema": {
-              "$ref": "#/definitions/LogoutResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/communication/communications/send-message": {
-      "post": {
-        "tags": [
-          "Communication"
-        ],
-        "summary": "Send message",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "Json data",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/SendMessage"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Execution Successful",
-            "schema": {
-              "$ref": "#/definitions/CreateSuccessResponse"
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "$ref": "#/definitions/BadRequestResponse"
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedUserResponse"
-            }
-          },
-          "503": {
-            "description": "Token Expired",
-            "schema": {
-              "$ref": "#/definitions/TokenExpiredResponse"
-            }
-          },
-          "504": {
-            "description": "Logged Out",
-            "schema": {
-              "$ref": "#/definitions/LogoutResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/communication/communications/send-reply": {
-      "post": {
-        "tags": [
-          "Communication"
-        ],
-        "summary": "Send message",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "Json data",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/SendMessageReply"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Execution Successful",
-            "schema": {
-              "$ref": "#/definitions/CreateSuccessResponse"
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "$ref": "#/definitions/BadRequestResponse"
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedUserResponse"
-            }
-          },
-          "503": {
-            "description": "Token Expired",
-            "schema": {
-              "$ref": "#/definitions/TokenExpiredResponse"
-            }
-          },
-          "504": {
-            "description": "Logged Out",
-            "schema": {
-              "$ref": "#/definitions/LogoutResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/communication/communications/delete-message": {
-      "delete": {
-        "tags": [
-          "Communication"
-        ],
-        "summary": "Delete message",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "Json data",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Message"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Execution Successful",
-            "schema": {
-              "$ref": "#/definitions/CreateSuccessResponse"
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "$ref": "#/definitions/BadRequestResponse"
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedUserResponse"
-            }
-          },
-          "503": {
-            "description": "Token Expired",
-            "schema": {
-              "$ref": "#/definitions/TokenExpiredResponse"
-            }
-          },
-          "504": {
-            "description": "Logged Out",
-            "schema": {
-              "$ref": "#/definitions/LogoutResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/communication/communications/contact-list": {
-      "get": {
-        "tags": [
-          "Communication"
-        ],
-        "summary": "Gives contact list",
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "query",
-            "description": "user_id",
-            "required": true
-          },
-          {
-            "name": "user_type",
-            "in": "query",
-            "description": "user_type"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Execution Successful",
-            "schema": {
-              "$ref": "#/definitions/CreateSuccessResponse"
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "$ref": "#/definitions/BadRequestResponse"
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedUserResponse"
-            }
-          },
-          "503": {
-            "description": "Token Expired",
-            "schema": {
-              "$ref": "#/definitions/TokenExpiredResponse"
-            }
-          },
-          "504": {
-            "description": "Logged Out",
-            "schema": {
-              "$ref": "#/definitions/LogoutResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/communication/communications/view-messages": {
-      "post": {
-        "tags": [
-          "Communication"
-        ],
-        "summary": "Gives message list",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "Json data",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/MessageList"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Execution Successful",
-            "schema": {
-              "$ref": "#/definitions/CreateSuccessResponse"
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "$ref": "#/definitions/BadRequestResponse"
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedUserResponse"
-            }
-          },
-          "503": {
-            "description": "Token Expired",
-            "schema": {
-              "$ref": "#/definitions/TokenExpiredResponse"
-            }
-          },
-          "504": {
-            "description": "Logged Out",
-            "schema": {
-              "$ref": "#/definitions/LogoutResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/communication/communications/delete-contact": {
-      "delete": {
-        "tags": [
-          "Communication"
-        ],
-        "summary": "Delete contact",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "Json data",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Contact"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Execution Successful",
-            "schema": {
-              "$ref": "#/definitions/CreateSuccessResponse"
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "schema": {
-              "$ref": "#/definitions/BadRequestResponse"
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "schema": {
-              "$ref": "#/definitions/UnauthorizedUserResponse"
-            }
-          },
-          "503": {
-            "description": "Token Expired",
-            "schema": {
-              "$ref": "#/definitions/TokenExpiredResponse"
-            }
-          },
-          "504": {
-            "description": "Logged Out",
-            "schema": {
-              "$ref": "#/definitions/LogoutResponse"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback/list": {
-      "get": {
-        "tags": [
-          "ClientFeedback"
-        ],
-        "summary": "Get list of client feedback",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback/feedback-service": {
-      "get": {
-        "tags": [
-          "ClientFeedback"
-        ],
-        "summary": "Get list of all feedback a/c to type and client_id ",
-        "parameters": [
-          {
-            "name": "client_id",
-            "in": "query",
-            "description": "clientid",
-            "required": true
-          },
-          {
-            "name": "type",
-            "in": "query",
-            "description": "type",
-            "required": true
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Clieent Feedback",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Createfeedback"
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback/qr-feedback-service": {
-      "get": {
-        "tags": [
-          "ClientFeedback"
-        ],
-        "summary": "Get list of all feedback a/c to qr_type and client_id ",
-        "parameters": [
-          {
-            "name": "client_id",
-            "in": "query",
-            "description": "clientid",
-            "required": true
-          },
-          {
-            "name": "qr_type",
-            "in": "query",
-            "description": "qr_type",
-            "required": true
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Clieent Feedback",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Createfeedback"
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback/create": {
-      "post": {
-        "tags": [
-          "ClientFeedback"
-        ],
-        "summary": "Create clientfeedback",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
+---
+swagger: '2.0'
+info:
+  title: Simple API
+  version: '1.0'
+basePath: "/"
+consumes:
+- application/x-www-form-urlencoded
+produces:
+- application/json
+paths:
+  "/communication/communications/create-contact":
+    post:
+      tags:
+      - Communication
+      summary: Create contact
+      parameters:
+      - name: Body
+        in: body
+        description: Json data
+        required: true
+        schema:
+          "$ref": "#/definitions/CreateAccessMessage"
+      responses:
+        '200':
+          description: Execution Successful
+          schema:
+            "$ref": "#/definitions/CreateSuccessResponse"
+        '400':
+          description: Bad Request
+          schema:
+            "$ref": "#/definitions/BadRequestResponse"
+        '401':
+          description: Unauthorized
+          schema:
+            "$ref": "#/definitions/UnauthorizedUserResponse"
+        '503':
+          description: Token Expired
+          schema:
+            "$ref": "#/definitions/TokenExpiredResponse"
+        '504':
+          description: Logged Out
+          schema:
+            "$ref": "#/definitions/LogoutResponse"
+      security:
+      - Bearer: []
+  "/communication/communications/send-message":
+    post:
+      tags:
+      - Communication
+      summary: Send message
+      parameters:
+      - name: Body
+        in: body
+        description: Json data
+        required: true
+        schema:
+          "$ref": "#/definitions/SendMessage"
+      responses:
+        '200':
+          description: Execution Successful
+          schema:
+            "$ref": "#/definitions/CreateSuccessResponse"
+        '400':
+          description: Bad Request
+          schema:
+            "$ref": "#/definitions/BadRequestResponse"
+        '401':
+          description: Unauthorized
+          schema:
+            "$ref": "#/definitions/UnauthorizedUserResponse"
+        '503':
+          description: Token Expired
+          schema:
+            "$ref": "#/definitions/TokenExpiredResponse"
+        '504':
+          description: Logged Out
+          schema:
+            "$ref": "#/definitions/LogoutResponse"
+      security:
+      - Bearer: []
+  "/communication/communications/send-reply":
+    post:
+      tags:
+      - Communication
+      summary: Send message
+      parameters:
+      - name: Body
+        in: body
+        description: Json data
+        required: true
+        schema:
+          "$ref": "#/definitions/SendMessageReply"
+      responses:
+        '200':
+          description: Execution Successful
+          schema:
+            "$ref": "#/definitions/CreateSuccessResponse"
+        '400':
+          description: Bad Request
+          schema:
+            "$ref": "#/definitions/BadRequestResponse"
+        '401':
+          description: Unauthorized
+          schema:
+            "$ref": "#/definitions/UnauthorizedUserResponse"
+        '503':
+          description: Token Expired
+          schema:
+            "$ref": "#/definitions/TokenExpiredResponse"
+        '504':
+          description: Logged Out
+          schema:
+            "$ref": "#/definitions/LogoutResponse"
+      security:
+      - Bearer: []
+  "/communication/communications/delete-message":
+    delete:
+      tags:
+      - Communication
+      summary: Delete message
+      parameters:
+      - name: Body
+        in: body
+        description: Json data
+        required: true
+        schema:
+          "$ref": "#/definitions/Message"
+      responses:
+        '200':
+          description: Execution Successful
+          schema:
+            "$ref": "#/definitions/CreateSuccessResponse"
+        '400':
+          description: Bad Request
+          schema:
+            "$ref": "#/definitions/BadRequestResponse"
+        '401':
+          description: Unauthorized
+          schema:
+            "$ref": "#/definitions/UnauthorizedUserResponse"
+        '503':
+          description: Token Expired
+          schema:
+            "$ref": "#/definitions/TokenExpiredResponse"
+        '504':
+          description: Logged Out
+          schema:
+            "$ref": "#/definitions/LogoutResponse"
+      security:
+      - Bearer: []
+  "/communication/communications/contact-list":
+    get:
+      tags:
+      - Communication
+      summary: Gives contact list
+      parameters:
+      - name: user_id
+        in: query
+        description: user_id
+        required: true
+      - name: user_type
+        in: query
+        description: user_type
+      responses:
+        '200':
+          description: Execution Successful
+          schema:
+            "$ref": "#/definitions/CreateSuccessResponse"
+        '400':
+          description: Bad Request
+          schema:
+            "$ref": "#/definitions/BadRequestResponse"
+        '401':
+          description: Unauthorized
+          schema:
+            "$ref": "#/definitions/UnauthorizedUserResponse"
+        '503':
+          description: Token Expired
+          schema:
+            "$ref": "#/definitions/TokenExpiredResponse"
+        '504':
+          description: Logged Out
+          schema:
+            "$ref": "#/definitions/LogoutResponse"
+      security:
+      - Bearer: []
+  "/communication/communications/view-messages":
+    post:
+      tags:
+      - Communication
+      summary: Gives message list
+      parameters:
+      - name: Body
+        in: body
+        description: Json data
+        required: true
+        schema:
+          "$ref": "#/definitions/MessageList"
+      responses:
+        '200':
+          description: Execution Successful
+          schema:
+            "$ref": "#/definitions/CreateSuccessResponse"
+        '400':
+          description: Bad Request
+          schema:
+            "$ref": "#/definitions/BadRequestResponse"
+        '401':
+          description: Unauthorized
+          schema:
+            "$ref": "#/definitions/UnauthorizedUserResponse"
+        '503':
+          description: Token Expired
+          schema:
+            "$ref": "#/definitions/TokenExpiredResponse"
+        '504':
+          description: Logged Out
+          schema:
+            "$ref": "#/definitions/LogoutResponse"
+      security:
+      - Bearer: []
+  "/communication/communications/delete-contact":
+    delete:
+      tags:
+      - Communication
+      summary: Delete contact
+      parameters:
+      - name: Body
+        in: body
+        description: Json data
+        required: true
+        schema:
+          "$ref": "#/definitions/Contact"
+      responses:
+        '200':
+          description: Execution Successful
+          schema:
+            "$ref": "#/definitions/CreateSuccessResponse"
+        '400':
+          description: Bad Request
+          schema:
+            "$ref": "#/definitions/BadRequestResponse"
+        '401':
+          description: Unauthorized
+          schema:
+            "$ref": "#/definitions/UnauthorizedUserResponse"
+        '503':
+          description: Token Expired
+          schema:
+            "$ref": "#/definitions/TokenExpiredResponse"
+        '504':
+          description: Logged Out
+          schema:
+            "$ref": "#/definitions/LogoutResponse"
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/list":
+    get:
+      tags:
+      - ClientFeedback
+      summary: Get list of client feedback
+      parameters:
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/feedback-service":
+    get:
+      tags:
+      - ClientFeedback
+      summary: 'Get list of all feedback a/c to type and client_id '
+      parameters:
+      - name: client_id
+        in: query
+        description: clientid
+        required: true
+      - name: type
+        in: query
+        description: type
+        required: true
+      - name: organization_id
+        in: query
+        description: organization_id
+      responses:
+        '200':
+          description: Clieent Feedback
+          schema:
+            type: array
+            items:
               "$ref": "#/definitions/Createfeedback"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/qr-feedback-service":
+    get:
+      tags:
+      - ClientFeedback
+      summary: 'Get list of all feedback a/c to qr_type and client_id '
+      parameters:
+      - name: client_id
+        in: query
+        description: clientid
+        required: true
+      - name: qr_type
+        in: query
+        description: qr_type
+        required: true
+      - name: organization_id
+        in: query
+        description: organization_id
+      responses:
+        '200':
+          description: Clieent Feedback
+          schema:
+            type: array
+            items:
               "$ref": "#/definitions/Createfeedback"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback/feedback-type-service": {
-      "get": {
-        "tags": [
-          "ClientFeedback"
-        ],
-        "summary": "Get list of service of feedback a/c to feedback_type_id",
-        "parameters": [
-          {
-            "name": "feedback_type_id",
-            "in": "query",
-            "description": "feedback_type_id",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Client Feedback",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/FeedbackService"
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback/qr-feedback-area": {
-      "get": {
-        "tags": [
-          "ClientFeedback"
-        ],
-        "summary": "Get list of area of qr feedback a/c to qr_feedback_id",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          },
-          {
-            "name": "qr_feedback_id",
-            "in": "query",
-            "description": "qr_feedback_id",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback/qr-feedback-area-service": {
-      "get": {
-        "tags": [
-          "ClientFeedback"
-        ],
-        "summary": "Get list of area ervice of qr feedback a/c to area_id",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          },
-          {
-            "name": "area_id",
-            "in": "query",
-            "description": "area_id",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback/update-qrfeedback-service": {
-      "post": {
-        "tags": [
-          "ClientFeedback"
-        ],
-        "summary": "update qr feeddback area service",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "clientfeedback type data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Updateqrservice"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data update Feedback",
-            "schema": {
-              "$ref": "#/definitions/Updateqrservice"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback/list-comment": {
-      "get": {
-        "tags": [
-          "ClientFeedback"
-        ],
-        "summary": "Get list of client feedback comment",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          },
-          {
-            "name": "feedback_id",
-            "in": "query",
-            "description": "feedback_id",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback/list-reply": {
-      "get": {
-        "tags": [
-          "ClientFeedback"
-        ],
-        "summary": "Get list of reply of respective comment",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          },
-          {
-            "name": "comment_id",
-            "in": "query",
-            "description": "comment_id",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback/reply": {
-      "post": {
-        "tags": [
-          "ClientFeedback"
-        ],
-        "summary": "add reply to clientfeedback comment",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "comment reply data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/CreateReply"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Comment Reply",
-            "schema": {
-              "$ref": "#/definitions/CreateReply"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback/update-feedbacktype-service": {
-      "post": {
-        "tags": [
-          "ClientFeedback"
-        ],
-        "summary": "update clientfeedback type and its services",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "clientfeedback type data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Updatefeedbackservice"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data update Feedback",
-            "schema": {
-              "$ref": "#/definitions/Updatefeedbackservice"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback-report/list": {
-      "get": {
-        "tags": [
-          "ClientFeedbackReport"
-        ],
-        "summary": "Get list of client feedback report",
-        "parameters": [
-          {
-            "name": "client_id",
-            "in": "query",
-            "description": "client_id",
-            "required": true
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback-report/create": {
-      "post": {
-        "tags": [
-          "ClientFeedbackReport"
-        ],
-        "summary": "Create clientfeedback report",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Createfeedbackreport"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Createfeedbackreport"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback-report/report-generate": {
-      "post": {
-        "tags": [
-          "ClientFeedbackReport"
-        ],
-        "summary": "generate clientfeedback report",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Generatereport"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Generatereport"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/client-feedback-report/update": {
-      "post": {
-        "tags": [
-          "ClientFeedbackReport"
-        ],
-        "summary": "update clientfeedback report",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Updatefeedbackreport"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Updatefeedbackreport"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/list-area": {
-      "get": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Get list of area template",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/create-area": {
-      "post": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Create area of specs template",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Createarea"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Createarea"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/update-area": {
-      "put": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "update area of template specs",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Updatearea"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Updatearea"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/list-frequency": {
-      "get": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Get list of frequency template",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/create-frequency": {
-      "post": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Create frequency of specs template",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Createfrequency"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Createfrequency"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/update-frequency": {
-      "put": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "update frequency of template specs",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Updatefrequency"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Updatefrequency"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/list-room": {
-      "get": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Get list of room template",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/create-room": {
-      "post": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Create room of specs template",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Createroom"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Createroom"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/update-room": {
-      "put": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "update room of template specs",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Updateroom"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Updateroom"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/list-service": {
-      "get": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Get list of service template",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/create-service": {
-      "post": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Create service of specs template",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Createservicetemplate"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Createservicetemplate"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/update-service": {
-      "put": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "update service of template specs",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Updatearea"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Updatearea"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/list-area-task": {
-      "get": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Get list of  task template accprding to area",
-        "parameters": [
-          {
-            "name": "area_id",
-            "in": "query",
-            "description": "area_id",
-            "required": true
-          },
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/create-area-task": {
-      "post": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Create area an its task of specs template",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Createareatask"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Createareatask"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/update-area-task": {
-      "put": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "update areatask of template specs",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Updateareatask"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Updateareatask"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/all-area-task": {
-      "get": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Get list of area and its task template",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/list-template": {
-      "get": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Get list of  template name and its services",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          },
-          {
-            "name": "type",
-            "in": "query",
-            "description": "type"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/list-template-name-service": {
-      "get": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Get list of services a.c to template name",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "limit"
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "description": "page"
-          },
-          {
-            "name": "sortno",
-            "in": "query",
-            "description": "sortno"
-          },
-          {
-            "name": "sortname",
-            "in": "query",
-            "description": "sortname"
-          },
-          {
-            "name": "organization_id",
-            "in": "query",
-            "description": "organization_id"
-          },
-          {
-            "name": "template_id",
-            "in": "query",
-            "description": "template_id"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "View Successful"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
-    "/feedback/specs-template/create-template": {
-      "post": {
-        "tags": [
-          "SpecsTemplate"
-        ],
-        "summary": "Create template name and its service",
-        "parameters": [
-          {
-            "name": "Body",
-            "in": "body",
-            "description": "feedback data in json",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Createtemplate"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Data Feedback",
-            "schema": {
-              "$ref": "#/definitions/Createtemplate"
-            }
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    }
-  },
-  "definitions": {
-    "AdminMessageListStaff": {
-      "required": [
-        ""
-      ],
-      "properties": {
-        "date": {
-          "type": "date",
-          "example": "2021-04-20"
-        },
-        "page": {
-          "type": "integer",
-          "example": "1"
-        },
-        "limit": {
-          "type": "integer",
-          "example": "20"
-        },
-        "sort": {
-          "type": "string",
-          "example": "DESC"
-        },
-        "sort_field": {
-          "type": "string",
-          "example": "id"
-        },
-        "fields": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "field": {
-                "type": "string"
-              },
-              "operator": {
-                "type": "string"
-              },
-              "value": {
-                "type": "string"
-              }
-            },
-            "type": "object"
-          }
-        }
-      }
-    },
-    "BadRequestResponse": {
-      "required": [
-        ""
-      ],
-      "properties": {
-        "success": {
-          "type": "string",
-          "example": "false"
-        },
-        "statusCode": {
-          "type": "integer",
-          "example": 400
-        },
-        "statusMessage": {
-          "type": "string",
-          "example": "Bad Request"
-        },
-        "message": {
-          "type": "string",
-          "example": "This Operation cannot be performed right now"
-        }
-      }
-    },
-    "ContactListStaff": {
-      "required": [],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "page": {
-          "type": "integer",
-          "example": "1"
-        },
-        "limit": {
-          "type": "integer",
-          "example": "20"
-        },
-        "sort": {
-          "type": "string",
-          "example": "DESC"
-        },
-        "fields": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "field": {
-                "type": "string"
-              },
-              "operator": {
-                "type": "string"
-              },
-              "value": {
-                "type": "string"
-              }
-            },
-            "type": "object"
-          }
-        }
-      }
-    },
-    "CreateAccessMessage": {
-      "required": [
-        "to"
-      ],
-      "properties": {
-        "from": {
-          "type": "string"
-        },
-        "from_user_type": {
-          "type": "string"
-        },
-        "to": {
-          "type": "string"
-        },
-        "to_user_type": {
-          "type": "string"
-        },
-        "company_id": {
-          "type": "integer"
-        }
-      }
-    },
-    "CreateSuccessResponse": {
-      "required": [
-        ""
-      ],
-      "properties": {
-        "success": {
-          "type": "string",
-          "example": "true"
-        },
-        "statusCode": {
-          "type": "integer",
-          "example": 200
-        },
-        "message": {
-          "type": "string",
-          "example": "The record has been created successfully."
-        },
-        "data": {
-          "type": "string",
-          "example": "[]"
-        }
-      }
-    },
-    "LogoutResponse": {
-      "required": [
-        ""
-      ],
-      "properties": {
-        "success": {
-          "type": "string",
-          "example": "false"
-        },
-        "statusCode": {
-          "type": "integer",
-          "example": 504
-        },
-        "statusMessage": {
-          "type": "string",
-          "example": "Logged Out"
-        },
-        "message": {
-          "type": "string",
-          "example": "Token Expired and Logged Out"
-        }
-      }
-    },
-    "Message": {
-      "required": [
-        "id"
-      ],
-      "properties": {
-        "id": {
-          "type": "integer"
-        }
-      }
-    },
-    "MessageList": {
-      "required": [
-        "user_one",
-        "user_two"
-      ],
-      "properties": {
-        "user_one": {
-          "type": "string"
-        },
-        "user_two": {
-          "type": "string"
-        }
-      }
-    },
-    "SendMessage": {
-      "required": [
-        "sender_id,receiver_id",
-        "message_content"
-      ],
-      "properties": {
-        "sender_id": {
-          "type": "string"
-        },
-        "receiver_id": {
-          "type": "string"
-        },
-        "message_content": {
-          "type": "string"
-        },
-        "image[]": {
-          "type": "string"
-        },
-        "company_id": {
-          "type": "integer"
-        }
-      }
-    },
-    "SendMessageReply": {
-      "required": [
-        "message_id",
-        "sender_id,receiver_id",
-        "message_content"
-      ],
-      "properties": {
-        "message_id": {
-          "type": "integer"
-        },
-        "sender_id": {
-          "type": "string"
-        },
-        "receiver_id": {
-          "type": "string"
-        },
-        "message_content": {
-          "type": "string"
-        },
-        "image[]": {
-          "type": "string"
-        },
-        "company_id": {
-          "type": "integer"
-        }
-      }
-    },
-    "TokenExpiredResponse": {
-      "required": [
-        ""
-      ],
-      "properties": {
-        "success": {
-          "type": "string",
-          "example": "false"
-        },
-        "statusCode": {
-          "type": "integer",
-          "example": 503
-        },
-        "statusMessage": {
-          "type": "string",
-          "example": "Token Expired"
-        },
-        "message": {
-          "type": "string",
-          "example": "Access Token Expired"
-        }
-      }
-    },
-    "UnauthorizedUserResponse": {
-      "required": [
-        ""
-      ],
-      "properties": {
-        "success": {
-          "type": "string",
-          "example": "false"
-        },
-        "statusCode": {
-          "type": "integer",
-          "example": 401
-        },
-        "statusMessage": {
-          "type": "string",
-          "example": "Unauthorized Access"
-        },
-        "message": {
-          "type": "string",
-          "example": "Your request was made with invalid credentials."
-        }
-      }
-    },
-    "CreateReply": {
-      "required": [
-        "comment_id",
-        "comment"
-      ],
-      "properties": {
-        "comment_id": {
-          "type": "integer"
-        },
-        "comment": {
-          "type": "string"
-        }
-      }
-    },
-    "Createarea": {
-      "required": [
-        "title",
-        "status"
-      ],
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string",
-          "example": "Active"
-        }
-      }
-    },
-    "Createareatask": {
-      "required": [
-        "area"
-      ],
-      "properties": {
-        "area": {
-          "type": "string"
-        },
-        "task": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "task": {
-                "type": "string"
-              },
-              "status": {
-                "type": "string",
-                "example": "Active"
-              }
-            },
-            "type": "object"
-          }
-        }
-      }
-    },
-    "Createfeedback": {
-      "required": [
-        "client_id",
-        "staff_id",
-        "date"
-      ],
-      "properties": {
-        "client_id": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "client_id": {
-                "type": "string"
-              }
-            },
-            "type": "object"
-          }
-        },
-        "staff_id": {
-          "type": "string"
-        },
-        "date": {
-          "type": "string"
-        },
-        "user_id": {
-          "type": "string"
-        },
-        "organization_id": {
-          "type": "string"
-        },
-        "feedback": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "feedback_type": {
-                "type": "string"
-              },
-              "area_manager_id": {
-                "type": "string"
-              },
-              "monthly_report": {
-                "type": "string"
-              },
-              "supervisor_action_taken": {
-                "type": "string"
-              },
-              "customer_comments": {
-                "type": "string"
-              },
-              "customer_action_plan": {
-                "type": "string"
-              },
-              "customer_name": {
-                "type": "string"
-              },
-              "customer_signature": {
-                "type": "string"
-              },
-              "customer_position": {
-                "type": "string"
-              },
-              "manager_comments": {
-                "type": "string"
-              },
-              "manager_action_plan": {
-                "type": "string"
-              },
-              "manager_name": {
-                "type": "string"
-              },
-              "manager_signature": {
-                "type": "string"
-              },
-              "manager_position": {
-                "type": "string"
-              },
-              "service": {
-                "type": "array",
-                "items": {
-                  "properties": {
-                    "title": {
-                      "type": "string"
-                    },
-                    "rating": {
-                      "type": "integer"
-                    },
-                    "comment": {
-                      "type": "string"
-                    }
-                  },
-                  "type": "object"
-                }
-              }
-            },
-            "type": "object"
-          }
-        },
-        "qr_feedback": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "qr_type": {
-                "type": "string"
-              },
-              "site_id": {
-                "type": "string"
-              },
-              "area_manager_id": {
-                "type": "string"
-              },
-              "qr_area": {
-                "type": "array",
-                "items": {
-                  "properties": {
-                    "area": {
-                      "type": "string"
-                    },
-                    "qr_task": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "task": {
-                            "type": "string"
-                          },
-                          "frequency": {
-                            "type": "string"
-                          },
-                          "rating": {
-                            "type": "integer"
-                          },
-                          "comments": {
-                            "type": "string"
-                          }
-                        },
-                        "type": "object"
-                      }
-                    }
-                  },
-                  "type": "object"
-                }
-              }
-            },
-            "type": "object"
-          }
-        },
-        "specs_area": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "key": {
-                "type": "integer"
-              },
-              "room_type": {
-                "type": "string"
-              }
-            },
-            "type": "object"
-          }
-        },
-        "specs_frequency": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "frequency_name": {
-                "type": "string"
-              },
-              "frequency_short_name": {
-                "type": "string"
-              }
-            },
-            "type": "object"
-          }
-        },
-        "specs_term": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "type": {
-                "type": "string",
-                "example": "time_term or half_term"
-              },
-              "task_category": {
-                "type": "string",
-                "example": "Hygiene or Non-Hygiene"
-              },
-              "area": {
-                "type": "array",
-                "items": {
-                  "properties": {
-                    "area": {
-                      "type": "string"
-                    },
-                    "task": {
-                      "type": "array",
-                      "items": {
-                        "properties": {
-                          "task": {
-                            "type": "string"
-                          },
-                          "task_data": {
-                            "type": "array",
-                            "items": {
-                              "properties": {
-                                "room_key_id": {
-                                  "type": "integer"
-                                },
-                                "frequency_id": {
-                                  "type": "integer"
-                                }
-                              },
-                              "type": "object"
-                            }
-                          }
-                        },
-                        "type": "object"
-                      }
-                    }
-                  },
-                  "type": "object"
-                }
-              }
-            },
-            "type": "object"
-          }
-        },
-        "period": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "task_name": {
-                "type": "string"
-              },
-              "date": {
-                "type": "string"
-              },
-              "month": {
-                "type": "array",
-                "items": {
-                  "properties": {
-                    "month": {
-                      "type": "string"
-                    },
-                    "task_description": {
-                      "type": "string"
-                    }
-                  },
-                  "type": "object"
-                }
-              }
-            },
-            "type": "object"
-          }
-        },
-        "specs_comment": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "comment": {
-                "type": "string"
-              }
-            },
-            "type": "object"
-          }
-        }
-      }
-    },
-    "Createfeedbackreport": {
-      "required": [
-        "title",
-        "report_by",
-        "client_id",
-        "report"
-      ],
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "report_by": {
-          "type": "string"
-        },
-        "client_id": {
-          "type": "string"
-        },
-        "attachments[]": {
-          "type": "string"
-        }
-      }
-    },
-    "Createfrequency": {
-      "required": [
-        "frequency_name",
-        "frequency_short_name",
-        "status"
-      ],
-      "properties": {
-        "frequency_name": {
-          "type": "string"
-        },
-        "frequency_short_name": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string",
-          "example": "Active"
-        }
-      }
-    },
-    "Createroom": {
-      "required": [
-        "key",
-        "title",
-        "status"
-      ],
-      "properties": {
-        "key": {
-          "type": "integer"
-        },
-        "title": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string",
-          "example": "Active"
-        }
-      }
-    },
-    "Createservicetemplate": {
-      "required": [
-        "title",
-        "status"
-      ],
-      "properties": {
-        "service": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "title": {
-                "type": "string"
-              },
-              "status": {
-                "type": "string",
-                "example": "Active"
-              }
-            },
-            "type": "object"
-          }
-        }
-      }
-    },
-    "Createtemplate": {
-      "required": [
-        "name"
-      ],
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string"
-        },
-        "service": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "service": {
-                "type": "string"
-              }
-            },
-            "type": "object"
-          }
-        }
-      }
-    },
-    "FeedbackService": {
-      "required": [],
-      "properties": {
-        "limit": {
-          "type": "integer"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "sortno": {
-          "type": "integer"
-        },
-        "sortname": {
-          "type": "string"
-        },
-        "client_id": {
-          "type": "string"
-        },
-        "organization_id": {
-          "type": "string"
-        }
-      }
-    },
-    "Generatereport": {
-      "required": [
-        "title",
-        "report_by",
-        "client_id",
-        "report"
-      ],
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "report_by": {
-          "type": "string"
-        },
-        "client_id": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-      }
-    },
-    "Listfeedback": {
-      "required": [],
-      "properties": {
-        "limit": {
-          "type": "integer"
-        },
-        "page": {
-          "type": "integer"
-        },
-        "sortno": {
-          "type": "integer"
-        },
-        "sortname": {
-          "type": "string"
-        },
-        "organization_id": {
-          "type": "string"
-        }
-      }
-    },
-    "Titleonly": {
-      "required": [
-        "title"
-      ],
-      "properties": {
-        "title": {
-          "type": "string"
-        }
-      }
-    },
-    "Updatearea": {
-      "required": [
-        "area_id",
-        "title",
-        "status"
-      ],
-      "properties": {
-        "area_id": {
-          "type": "integer"
-        },
-        "title": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string",
-          "example": "Active"
-        }
-      }
-    },
-    "Updateareatask": {
-      "required": [
-        "id",
-        "area_id",
-        "task",
-        "status"
-      ],
-      "properties": {
-        "area_id": {
-          "type": "integer"
-        },
-        "task": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string",
-          "example": "Active"
-        }
-      }
-    },
-    "Updatefeedbackreport": {
-      "required": [
-        "feedback_report_id",
-        "title",
-        "report_by",
-        "client_id",
-        "report"
-      ],
-      "properties": {
-        "feedback_report_id": {
-          "type": "integer"
-        },
-        "title": {
-          "type": "string"
-        },
-        "report_by": {
-          "type": "string"
-        },
-        "client_id": {
-          "type": "string"
-        },
-        "report": {
-          "type": "string"
-        },
-        "attachments": {
-          "type": "string"
-        }
-      }
-    },
-    "Updatefeedbackservice": {
-      "required": [
-        "feedback_type_id",
-        "feedback_service_id"
-      ],
-      "properties": {
-        "feedback_type_id": {
-          "type": "integer"
-        },
-        "feedback_type": {
-          "type": "string"
-        },
-        "area_manager_id": {
-          "type": "string"
-        },
-        "monthly_report": {
-          "type": "string"
-        },
-        "supervisor_action_taken": {
-          "type": "string"
-        },
-        "customer_comments": {
-          "type": "string"
-        },
-        "customer_action_plan": {
-          "type": "string"
-        },
-        "customer_name": {
-          "type": "string"
-        },
-        "customer_signature": {
-          "type": "string"
-        },
-        "customer_position": {
-          "type": "string"
-        },
-        "manager_comments": {
-          "type": "string"
-        },
-        "manager_action_plan": {
-          "type": "string"
-        },
-        "manager_name": {
-          "type": "string"
-        },
-        "manager_signature": {
-          "type": "string"
-        },
-        "manager_position": {
-          "type": "string"
-        },
-        "service": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "feedback_service_id": {
-                "type": "integer"
-              },
-              "title": {
-                "type": "string"
-              },
-              "rating": {
-                "type": "integer"
-              },
-              "comment": {
-                "type": "string"
-              }
-            },
-            "type": "object"
-          }
-        }
-      }
-    },
-    "Updatefrequency": {
-      "required": [
-        "frequency_id",
-        "frequency_name",
-        "frequency_short_name",
-        "status"
-      ],
-      "properties": {
-        "frequency_id": {
-          "type": "integer"
-        },
-        "frequency_name": {
-          "type": "string"
-        },
-        "frequency_short_name": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string",
-          "example": "Active"
-        }
-      }
-    },
-    "Updateqrservice": {
-      "required": [
-        "qr_feedback_task_id",
-        "area_id",
-        "task",
-        "frequency",
-        "rating",
-        "comments"
-      ],
-      "properties": {
-        "service": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "qr_feedback_task_id": {
-                "type": "integer"
-              },
-              "area_id": {
-                "type": "integer"
-              },
-              "task": {
-                "type": "string"
-              },
-              "frequency": {
-                "type": "string"
-              },
-              "rating": {
-                "type": "integer"
-              },
-              "comments": {
-                "type": "string"
-              }
-            },
-            "type": "object"
-          }
-        }
-      }
-    },
-    "Updateroom": {
-      "required": [
-        "room_id",
-        "key",
-        "title",
-        "status"
-      ],
-      "properties": {
-        "room_id": {
-          "type": "integer"
-        },
-        "key": {
-          "type": "integer"
-        },
-        "title": {
-          "type": "string"
-        },
-        "status": {
-          "type": "string",
-          "example": "Active"
-        }
-      }
-    }
-  }
-}
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/create":
+    post:
+      tags:
+      - ClientFeedback
+      summary: Create clientfeedback
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Createfeedback"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Createfeedback"
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/feedback-type-service":
+    get:
+      tags:
+      - ClientFeedback
+      summary: Get list of service of feedback a/c to feedback_type_id
+      parameters:
+      - name: feedback_type_id
+        in: query
+        description: feedback_type_id
+        required: true
+      responses:
+        '200':
+          description: Client Feedback
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/FeedbackService"
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/qr-feedback-area":
+    get:
+      tags:
+      - ClientFeedback
+      summary: Get list of area of qr feedback a/c to qr_feedback_id
+      parameters:
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      - name: qr_feedback_id
+        in: query
+        description: qr_feedback_id
+        required: true
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/client-feedback-specs":
+    get:
+      tags:
+      - ClientFeedbackSpecs
+      summary: Get list of specs  a/c to client
+      parameters:
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      - name: client_id
+        in: query
+        description: client_id
+        required: true
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/qr-feedback-area-service":
+    get:
+      tags:
+      - ClientFeedback
+      summary: Get list of area ervice of qr feedback a/c to area_id
+      parameters:
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      - name: area_id
+        in: query
+        description: area_id
+        required: true
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/update-qrfeedback-service":
+    post:
+      tags:
+      - ClientFeedback
+      summary: update qr feeddback area service
+      parameters:
+      - name: Body
+        in: body
+        description: clientfeedback type data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Updateqrservice"
+      responses:
+        '201':
+          description: Data update Feedback
+          schema:
+            "$ref": "#/definitions/Updateqrservice"
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/list-comment":
+    get:
+      tags:
+      - ClientFeedback
+      summary: Get list of client feedback comment
+      parameters:
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      - name: feedback_id
+        in: query
+        description: feedback_id
+        required: true
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/list-reply":
+    get:
+      tags:
+      - ClientFeedback
+      summary: Get list of reply of respective comment
+      parameters:
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      - name: comment_id
+        in: query
+        description: comment_id
+        required: true
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/reply":
+    post:
+      tags:
+      - ClientFeedback
+      summary: add reply to clientfeedback comment
+      parameters:
+      - name: Body
+        in: body
+        description: comment reply data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/CreateReply"
+      responses:
+        '201':
+          description: Data Comment Reply
+          schema:
+            "$ref": "#/definitions/CreateReply"
+      security:
+      - Bearer: []
+  "/feedback/client-feedback/update-feedbacktype-service":
+    post:
+      tags:
+      - ClientFeedback
+      summary: update clientfeedback type and its services
+      parameters:
+      - name: Body
+        in: body
+        description: clientfeedback type data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Updatefeedbackservice"
+      responses:
+        '201':
+          description: Data update Feedback
+          schema:
+            "$ref": "#/definitions/Updatefeedbackservice"
+      security:
+      - Bearer: []
+  "/feedback/client-feedback-report/list":
+    get:
+      tags:
+      - ClientFeedbackReport
+      summary: Get list of client feedback report
+      parameters:
+      - name: client_id
+        in: query
+        description: client_id
+        required: true
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/client-feedback-report/create":
+    post:
+      tags:
+      - ClientFeedbackReport
+      summary: Create clientfeedback report
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Createfeedbackreport"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Createfeedbackreport"
+      security:
+      - Bearer: []
+  "/feedback/client-feedback-report/report-generate":
+    post:
+      tags:
+      - ClientFeedbackReport
+      summary: generate clientfeedback report
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Generatereport"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Generatereport"
+      security:
+      - Bearer: []
+  "/feedback/client-feedback-report/update":
+    post:
+      tags:
+      - ClientFeedbackReport
+      summary: update clientfeedback report
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Updatefeedbackreport"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Updatefeedbackreport"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/list-area":
+    get:
+      tags:
+      - SpecsTemplate
+      summary: Get list of area template
+      parameters:
+      - name: limit
+        in: query
+        description: '10'
+      - name: page
+        in: query
+        description: '1'
+      - name: sortno
+        in: query
+        description: SORT_DESC
+      - name: sortname
+        in: query
+        description: area_id
+      - name: organization_id
+        in: query
+        description: organization_id
+      - name: filter_type
+        in: query
+        description: filter_type
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/create-area":
+    post:
+      tags:
+      - SpecsTemplate
+      summary: Create area of specs template
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Createarea"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Createarea"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/update-area":
+    put:
+      tags:
+      - SpecsTemplate
+      summary: update area of template specs
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Updatearea"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Updatearea"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/delete-area":
+    delete:
+      tags:
+      - SpecsTemplate
+      summary: delete the data of the area page
+      parameters:
+      - name: area_id
+        in: query
+        description: data in json
+        required: true
+      - name: organization_id
+        in: query
+        description: data in json
+        required: true
+      responses:
+        '200':
+          description: Execute Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/detail-area":
+    get:
+      tags:
+      - SpecsTemplate
+      summary: get the data of the area page
+      parameters:
+      - name: area_id
+        in: query
+        description: data in json
+        required: true
+      - name: organization_id
+        in: query
+        description: data in json
+        required: true
+      responses:
+        '200':
+          description: Execute Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/list-frequency":
+    get:
+      tags:
+      - SpecsTemplate
+      summary: Get list of frequency template
+      parameters:
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/create-frequency":
+    post:
+      tags:
+      - SpecsTemplate
+      summary: Create frequency of specs template
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Createfrequency"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Createfrequency"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/update-frequency":
+    put:
+      tags:
+      - SpecsTemplate
+      summary: update frequency of template specs
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Updatefrequency"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Updatefrequency"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/delete-frequency":
+    delete:
+      tags:
+      - SpecsTemplate
+      summary: delete the data of the area page
+      parameters:
+      - name: frequency_id
+        in: query
+        description: data in json
+        required: true
+      - name: organization_id
+        in: query
+        description: data in json
+        required: true
+      responses:
+        '200':
+          description: Execute Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/detail-frequency":
+    get:
+      tags:
+      - SpecsTemplate
+      summary: get the data of the area page
+      parameters:
+      - name: frequency_id
+        in: query
+        description: data in json
+        required: true
+      - name: organization_id
+        in: query
+        description: data in json
+        required: true
+      responses:
+        '200':
+          description: Execute Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/list-room":
+    get:
+      tags:
+      - SpecsTemplate
+      summary: Get list of room template
+      parameters:
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/create-room":
+    post:
+      tags:
+      - SpecsTemplate
+      summary: Create room of specs template
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Createroom"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Createroom"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/update-room":
+    put:
+      tags:
+      - SpecsTemplate
+      summary: update room of template specs
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Updateroom"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Updateroom"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/delete-room":
+    delete:
+      tags:
+      - SpecsTemplate
+      summary: delete the data of the room page
+      parameters:
+      - name: room_id
+        in: query
+        description: data in json
+        required: true
+      - name: organization_id
+        in: query
+        description: data in json
+        required: true
+      responses:
+        '200':
+          description: Execute Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/detail-room":
+    get:
+      tags:
+      - SpecsTemplate
+      summary: get the data of the room page
+      parameters:
+      - name: room_id
+        in: query
+        description: data in json
+        required: true
+      - name: organization_id
+        in: query
+        description: data in json
+        required: true
+      responses:
+        '200':
+          description: Execute Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/list-service":
+    get:
+      tags:
+      - SpecsTemplate
+      summary: Get list of service template
+      parameters:
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/create-service":
+    post:
+      tags:
+      - SpecsTemplate
+      summary: Create service of specs template
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Createservicetemplate"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Createservicetemplate"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/update-service":
+    put:
+      tags:
+      - SpecsTemplate
+      summary: update service of template specs
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Updatearea"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Updatearea"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/delete-service":
+    delete:
+      tags:
+      - SpecsTemplate
+      summary: delete the data of the service page
+      parameters:
+      - name: service_id
+        in: query
+        description: data in json
+        required: true
+      - name: organization_id
+        in: query
+        description: data in json
+        required: true
+      responses:
+        '200':
+          description: Execute Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/detail-service":
+    get:
+      tags:
+      - SpecsTemplate
+      summary: get the data of the service page
+      parameters:
+      - name: service_id
+        in: query
+        description: data in json
+        required: true
+      - name: organization_id
+        in: query
+        description: data in json
+        required: true
+      responses:
+        '200':
+          description: Execute Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/list-area-task":
+    get:
+      tags:
+      - SpecsTemplate
+      summary: Get list of  task template accprding to area
+      parameters:
+      - name: area_id
+        in: query
+        description: area_id
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/create-area-task":
+    post:
+      tags:
+      - SpecsTemplate
+      summary: Create area an its task of specs template
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Createareatask"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Createareatask"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/update-area-task":
+    put:
+      tags:
+      - SpecsTemplate
+      summary: update areatask of template specs
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Updateareatask"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Updateareatask"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/all-area-task":
+    get:
+      tags:
+      - SpecsTemplate
+      summary: Get list of area and its task template
+      parameters:
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      - name: filter_type
+        in: query
+        description: filter_type
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/delete-areatask":
+    delete:
+      tags:
+      - SpecsTemplate
+      summary: delete the data of the area page
+      parameters:
+      - name: task_template_id
+        in: query
+        description: data in json
+        required: true
+      - name: organization_id
+        in: query
+        description: data in json
+        required: true
+      responses:
+        '200':
+          description: Execute Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/list-template":
+    get:
+      tags:
+      - SpecsTemplate
+      summary: Get list of  template name and its services
+      parameters:
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      - name: type
+        in: query
+        description: type
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/list-template-name-service":
+    get:
+      tags:
+      - SpecsTemplate
+      summary: Get list of services a.c to template name
+      parameters:
+      - name: limit
+        in: query
+        description: limit
+      - name: page
+        in: query
+        description: page
+      - name: sortno
+        in: query
+        description: sortno
+      - name: sortname
+        in: query
+        description: sortname
+      - name: organization_id
+        in: query
+        description: organization_id
+      - name: template_id
+        in: query
+        description: template_id
+      responses:
+        '200':
+          description: View Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/create-template":
+    post:
+      tags:
+      - SpecsTemplate
+      summary: Create template name and its service
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Createtemplate"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Createtemplate"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/update-template-service":
+    put:
+      tags:
+      - SpecsTemplate
+      summary: update templteservice of template specs
+      parameters:
+      - name: Body
+        in: body
+        description: feedback data in json
+        required: false
+        schema:
+          "$ref": "#/definitions/Updatetemplateservice"
+      responses:
+        '201':
+          description: Data Feedback
+          schema:
+            "$ref": "#/definitions/Updatetemplateservice"
+      security:
+      - Bearer: []
+  "/feedback/specs-template/delete-template":
+    delete:
+      tags:
+      - SpecsTemplate
+      summary: delete the data of the area page
+      parameters:
+      - name: template_id
+        in: query
+        description: data in json
+        required: true
+      - name: organization_id
+        in: query
+        description: data in json
+        required: true
+      responses:
+        '200':
+          description: Execute Successful
+      security:
+      - Bearer: []
+  "/feedback/specs-template/delete-template-service":
+    delete:
+      tags:
+      - SpecsTemplate
+      summary: delete the data of the template service page
+      parameters:
+      - name: service_id
+        in: query
+        description: data in json
+        required: true
+      - name: organization_id
+        in: query
+        description: data in json
+        required: true
+      responses:
+        '200':
+          description: Execute Successful
+      security:
+      - Bearer: []
+definitions:
+  AdminMessageListStaff:
+    required:
+    - ''
+    properties:
+      date:
+        type: date
+        example: '2021-04-20'
+      page:
+        type: integer
+        example: '1'
+      limit:
+        type: integer
+        example: '20'
+      sort:
+        type: string
+        example: DESC
+      sort_field:
+        type: string
+        example: id
+      fields:
+        type: array
+        items:
+          properties:
+            field:
+              type: string
+            operator:
+              type: string
+            value:
+              type: string
+          type: object
+  BadRequestResponse:
+    required:
+    - ''
+    properties:
+      success:
+        type: string
+        example: 'false'
+      statusCode:
+        type: integer
+        example: 400
+      statusMessage:
+        type: string
+        example: Bad Request
+      message:
+        type: string
+        example: This Operation cannot be performed right now
+  ContactListStaff:
+    required: []
+    properties:
+      name:
+        type: string
+      page:
+        type: integer
+        example: '1'
+      limit:
+        type: integer
+        example: '20'
+      sort:
+        type: string
+        example: DESC
+      fields:
+        type: array
+        items:
+          properties:
+            field:
+              type: string
+            operator:
+              type: string
+            value:
+              type: string
+          type: object
+  CreateAccessMessage:
+    required:
+    - to
+    properties:
+      from:
+        type: string
+      from_user_type:
+        type: string
+      to:
+        type: string
+      to_user_type:
+        type: string
+      company_id:
+        type: integer
+  CreateSuccessResponse:
+    required:
+    - ''
+    properties:
+      success:
+        type: string
+        example: 'true'
+      statusCode:
+        type: integer
+        example: 200
+      message:
+        type: string
+        example: The record has been created successfully.
+      data:
+        type: string
+        example: "[]"
+  LogoutResponse:
+    required:
+    - ''
+    properties:
+      success:
+        type: string
+        example: 'false'
+      statusCode:
+        type: integer
+        example: 504
+      statusMessage:
+        type: string
+        example: Logged Out
+      message:
+        type: string
+        example: Token Expired and Logged Out
+  Message:
+    required:
+    - id
+    properties:
+      id:
+        type: integer
+  MessageList:
+    required:
+    - user_one
+    - user_two
+    properties:
+      user_one:
+        type: string
+      user_two:
+        type: string
+  SendMessage:
+    required:
+    - sender_id,receiver_id
+    - message_content
+    properties:
+      sender_id:
+        type: string
+      receiver_id:
+        type: string
+      message_content:
+        type: string
+      image[]:
+        type: string
+      company_id:
+        type: integer
+  SendMessageReply:
+    required:
+    - message_id
+    - sender_id,receiver_id
+    - message_content
+    properties:
+      message_id:
+        type: integer
+      sender_id:
+        type: string
+      receiver_id:
+        type: string
+      message_content:
+        type: string
+      image[]:
+        type: string
+      company_id:
+        type: integer
+  TokenExpiredResponse:
+    required:
+    - ''
+    properties:
+      success:
+        type: string
+        example: 'false'
+      statusCode:
+        type: integer
+        example: 503
+      statusMessage:
+        type: string
+        example: Token Expired
+      message:
+        type: string
+        example: Access Token Expired
+  UnauthorizedUserResponse:
+    required:
+    - ''
+    properties:
+      success:
+        type: string
+        example: 'false'
+      statusCode:
+        type: integer
+        example: 401
+      statusMessage:
+        type: string
+        example: Unauthorized Access
+      message:
+        type: string
+        example: Your request was made with invalid credentials.
+  CreateReply:
+    required:
+    - comment_id
+    - comment
+    properties:
+      comment_id:
+        type: integer
+      comment:
+        type: string
+  Createarea:
+    required:
+    - title
+    - status
+    - type
+    properties:
+      title:
+        type: string
+      type:
+        type: string
+      filter_type:
+        type: string
+      status:
+        type: string
+        example: Active
+  Createareatask:
+    required:
+    - area
+    properties:
+      area:
+        type: string
+      type:
+        type: string
+      filter_type:
+        type: string
+      task:
+        type: array
+        items:
+          properties:
+            task:
+              type: string
+            status:
+              type: string
+              example: Active
+          type: object
+  Createfeedback:
+    required:
+    - client_id
+    - staff_id
+    - date
+    properties:
+      client_id:
+        type: array
+        items:
+          properties:
+            client_id:
+              type: string
+          type: object
+      start_date:
+        type: string
+      end_date:
+        type: string
+      date:
+        type: string
+      user_id:
+        type: string
+      organization_id:
+        type: string
+      feedback:
+        type: array
+        items:
+          properties:
+            feedback_type:
+              type: string
+            area_manager_id:
+              type: string
+            monthly_report:
+              type: string
+            supervisor_action_taken:
+              type: string
+            customer_comments:
+              type: string
+            customer_action_plan:
+              type: string
+            customer_name:
+              type: string
+            customer_signature:
+              type: string
+            customer_position:
+              type: string
+            manager_comments:
+              type: string
+            manager_action_plan:
+              type: string
+            manager_name:
+              type: string
+            manager_signature:
+              type: string
+            manager_position:
+              type: string
+            reoccurance:
+              type: string
+              example: '1'
+            start_date:
+              type: string
+            end_date:
+              type: string
+            week_day:
+              type: string
+              example: Monday,Tuesday
+            monthly_type:
+              type: string
+              example: option1
+            monthly_date:
+              type: string
+              example: '05'
+            monthly_count:
+              type: string
+              example: '02'
+            monthly_weeek:
+              type: string
+              example: '01'
+            monthly_day:
+              type: string
+              example: Monday
+            yearly_type:
+              type: string
+              example: option1
+            yearly_date:
+              type: string
+              example: '05'
+            yearly_month:
+              type: string
+              example: March
+            yearly_weeek:
+              type: string
+              example: '01'
+            yearly_day:
+              type: string
+              example: Monday
+            service:
+              type: array
+              items:
+                properties:
+                  title:
+                    type: string
+                  rating:
+                    type: integer
+                  comment:
+                    type: string
+                type: object
+          type: object
+      qr_feedback:
+        type: array
+        items:
+          properties:
+            qr_type:
+              type: string
+            site_id:
+              type: string
+            area_manager_id:
+              type: string
+            reoccurance:
+              type: string
+              example: '1'
+            start_date:
+              type: string
+            end_date:
+              type: string
+            week_day:
+              type: string
+              example: Monday,Tuesday
+            monthly_type:
+              type: string
+              example: option1
+            monthly_date:
+              type: string
+              example: '05'
+            monthly_count:
+              type: string
+              example: '02'
+            monthly_weeek:
+              type: string
+              example: '01'
+            monthly_day:
+              type: string
+              example: Monday
+            yearly_type:
+              type: string
+              example: option1
+            yearly_date:
+              type: string
+              example: '05'
+            yearly_month:
+              type: string
+              example: March
+            yearly_weeek:
+              type: string
+              example: '01'
+            yearly_day:
+              type: string
+              example: Monday
+            qr_area:
+              type: array
+              items:
+                properties:
+                  title:
+                    type: string
+                  qr_task:
+                    type: array
+                    items:
+                      properties:
+                        task:
+                          type: string
+                        frequency:
+                          type: string
+                        rating:
+                          type: integer
+                        comments:
+                          type: string
+                      type: object
+                type: object
+          type: object
+      specs_area:
+        type: array
+        items:
+          properties:
+            key:
+              type: integer
+            room_type:
+              type: string
+          type: object
+      specs_frequency:
+        type: array
+        items:
+          properties:
+            frequency_name:
+              type: string
+            frequency_short_name:
+              type: string
+          type: object
+      specs_term:
+        type: array
+        items:
+          properties:
+            type:
+              type: string
+              example: time_term or half_term
+            task_category:
+              type: string
+              example: Hygiene or Non-Hygiene
+            area:
+              type: array
+              items:
+                properties:
+                  area:
+                    type: string
+                  task:
+                    type: array
+                    items:
+                      properties:
+                        task:
+                          type: string
+                        task_data:
+                          type: array
+                          items:
+                            properties:
+                              room_key_id:
+                                type: integer
+                              frequency_id:
+                                type: integer
+                            type: object
+                      type: object
+                type: object
+          type: object
+      period:
+        type: array
+        items:
+          properties:
+            task_name:
+              type: string
+            date:
+              type: string
+            month:
+              type: array
+              items:
+                properties:
+                  month:
+                    type: string
+                  task_description:
+                    type: string
+                type: object
+          type: object
+      specs_comment:
+        type: array
+        items:
+          properties:
+            comment:
+              type: string
+          type: object
+  Createfeedbackreport:
+    required:
+    - title
+    - report_by
+    - client_id
+    - report
+    properties:
+      title:
+        type: string
+      report_by:
+        type: string
+      client_id:
+        type: string
+      attachments[]:
+        type: string
+  Createfrequency:
+    required:
+    - frequency_name
+    - frequency_short_name
+    - status
+    properties:
+      frequency_name:
+        type: string
+      frequency_short_name:
+        type: string
+      status:
+        type: string
+        example: Active
+  Createroom:
+    required:
+    - key
+    - title
+    - status
+    properties:
+      key:
+        type: integer
+      title:
+        type: string
+      status:
+        type: string
+        example: Active
+  Createservicetemplate:
+    required:
+    - title
+    - status
+    properties:
+      service:
+        type: array
+        items:
+          properties:
+            title:
+              type: string
+            status:
+              type: string
+              example: Active
+          type: object
+  Createtemplate:
+    required:
+    - name
+    properties:
+      name:
+        type: string
+      type:
+        type: string
+      service:
+        type: array
+        items:
+          properties:
+            service:
+              type: string
+            service_id:
+              type: integer
+          type: object
+  FeedbackService:
+    required: []
+    properties:
+      limit:
+        type: integer
+      page:
+        type: integer
+      sortno:
+        type: integer
+      sortname:
+        type: string
+      client_id:
+        type: string
+      organization_id:
+        type: string
+  Generatereport:
+    required:
+    - title
+    - report_by
+    - client_id
+    - report
+    properties:
+      title:
+        type: string
+      report_by:
+        type: string
+      client_id:
+        type: string
+      description:
+        type: string
+  Listfeedback:
+    required: []
+    properties:
+      limit:
+        type: integer
+      page:
+        type: integer
+      sortno:
+        type: integer
+      sortname:
+        type: string
+      organization_id:
+        type: string
+  Titleonly:
+    required:
+    - title
+    properties:
+      title:
+        type: string
+  Updatearea:
+    required:
+    - area_id
+    - title
+    - status
+    properties:
+      area_id:
+        type: integer
+      title:
+        type: string
+      type:
+        type: string
+      status:
+        type: string
+        example: Active
+  Updateareatask:
+    required:
+    - area
+    properties:
+      area_id:
+        type: integer
+      area:
+        type: string
+      type:
+        type: string
+      task:
+        type: array
+        items:
+          properties:
+            task_id:
+              type: integer
+            task:
+              type: string
+            status:
+              type: string
+              example: Active
+          type: object
+  Updatefeedbackreport:
+    required:
+    - feedback_report_id
+    - title
+    - report_by
+    - client_id
+    - report
+    properties:
+      feedback_report_id:
+        type: integer
+      title:
+        type: string
+      report_by:
+        type: string
+      client_id:
+        type: string
+      report:
+        type: string
+      attachments:
+        type: string
+  Updatefeedbackservice:
+    required:
+    - feedback_type_id
+    - feedback_service_id
+    properties:
+      feedback_type_id:
+        type: integer
+      feedback_type:
+        type: string
+      area_manager_id:
+        type: string
+      monthly_report:
+        type: string
+      supervisor_action_taken:
+        type: string
+      customer_comments:
+        type: string
+      customer_action_plan:
+        type: string
+      customer_name:
+        type: string
+      customer_signature:
+        type: string
+      customer_position:
+        type: string
+      manager_comments:
+        type: string
+      manager_action_plan:
+        type: string
+      manager_name:
+        type: string
+      manager_signature:
+        type: string
+      manager_position:
+        type: string
+      service:
+        type: array
+        items:
+          properties:
+            feedback_service_id:
+              type: integer
+            title:
+              type: string
+            rating:
+              type: integer
+            comment:
+              type: string
+          type: object
+  Updatefrequency:
+    required:
+    - frequency_id
+    - frequency_name
+    - frequency_short_name
+    - status
+    properties:
+      frequency_id:
+        type: integer
+      frequency_name:
+        type: string
+      frequency_short_name:
+        type: string
+      status:
+        type: string
+        example: Active
+  Updateqrservice:
+    required:
+    - qr_feedback_task_id
+    - area_id
+    - task
+    - frequency
+    - rating
+    - comments
+    properties:
+      service:
+        type: array
+        items:
+          properties:
+            qr_feedback_task_id:
+              type: integer
+            area_id:
+              type: integer
+            task:
+              type: string
+            frequency:
+              type: string
+            rating:
+              type: integer
+            comments:
+              type: string
+          type: object
+  Updateroom:
+    required:
+    - room_id
+    - key
+    - title
+    - status
+    properties:
+      room_id:
+        type: integer
+      key:
+        type: integer
+      title:
+        type: string
+      status:
+        type: string
+        example: Active
+  Updatetemplateservice:
+    required:
+    - name
+    properties:
+      template_id:
+        type: integer
+      name:
+        type: string
+      type:
+        type: string
+      service:
+        type: array
+        items:
+          properties:
+            service_id:
+              type: integer
+            service:
+              type: string
+          type: object
